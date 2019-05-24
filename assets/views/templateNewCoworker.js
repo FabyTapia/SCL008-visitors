@@ -1,4 +1,4 @@
-import {coworkerCreate} from '../js/datamodel.js';
+import {coworkerCreate, getCompanies} from '../js/datamodel.js';
 import {validateEmail, validatePhone} from '../js/validate.js';
 
 export const templateNewCoworker = () => {
@@ -7,7 +7,7 @@ export const templateNewCoworker = () => {
     `
     <nav class="navbar">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">----</span>
+      <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
       </button>
 
       <a class="navbar-brand" href="#">
@@ -40,23 +40,20 @@ export const templateNewCoworker = () => {
             <p id ="emailalert"></p>
             <input type="text" id="coworkerphone" class="form-control" placeholder="Número de celular"/>
             <p id ="phonealert"></p>
-            <select id="coworkercompany" class="form-control">            
+            <select id="company" class="form-control">            
               <option selected>Empresa que pertenece</option>
-              <option>Empresa 1</option>  
-              <option>Empresa 2</option>
-              <option>Empresa 3</option> 
             </select>
             <button id="registrationcowork">Registrar</button>  
         </article> 
     </div>
     `;
-  
+    getCompanies("Empresa que pertenece");
     document.getElementById('registrationcowork').addEventListener('click',()=>{
       let coworkerFirstName = document.getElementById('coworkerfirstname').value;
       let coworkerLastName = document.getElementById('coworkerlastname').value;
       let coworkerEmail = document.getElementById('coworkeremail').value;
       let coworkerPhone = document.getElementById('coworkerphone').value;
-      let coworkerCompany = document.getElementById('coworkercompany').value;
+      let coworkerCompany = document.getElementById('company').value;
       
 
   /*IMPRESION VÁLIDACIONES EN EL DOM*/

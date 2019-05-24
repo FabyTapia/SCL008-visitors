@@ -1,4 +1,5 @@
 import {templateVisitorRegistration} from './templateVisitorRegistration.js';
+import {templateAdminOptions} from './templateAdminOptions.js';
 
 export const templateSession = () => {
 
@@ -20,4 +21,10 @@ export const templateSession = () => {
         templateVisitorRegistration();
         window.location.hash="#/visitor"
     })
+
+    document.getElementById('administration').addEventListener('click',()=>{
+        templateAdminOptions();
+        window.location.hash="#/administration"
+    })
+    
 };
